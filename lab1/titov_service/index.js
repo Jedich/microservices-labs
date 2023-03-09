@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const hostname = "0.0.0.0";
-const port = 3000;
+const port = 8082;
 
 //Create HTTP server and listen on port 3000 for requests
 app.get('/', (req, res) => {
