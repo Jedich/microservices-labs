@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const hostname = "0.0.0.0";
-const port = 3000;
+const port = 8082;
 
 //Create HTTP server and listen on port 3000 for requests
-app.get('/', (req, res) => {
+app.get('/api/titov-service/', (req, res) => {
 	res.statusCode = 200;
-	res.send('Hello World!');
+	res.send('hello biden');
 })
 
 app.get('/foo', (req, res) => {
@@ -15,6 +15,4 @@ app.get('/foo', (req, res) => {
 
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
-app.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port);
