@@ -1,0 +1,22 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egortitov/DevOps_docker_lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egortitov/DevOps_docker_lab/issues"
+  },
+  "homepage": "https://github.com/egortitov/DevOps_docker_lab#readme",
+  "devDependencies": {
+    "eslint": "^8.29.0"
+  }
+}
