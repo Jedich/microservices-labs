@@ -9,7 +9,7 @@ import (
 func main() {
 	r := gin.Default()
 
-	r.GET("/api/golang-service/hello-go", func(c *gin.Context) {
+	r.GET("/api/golang-service/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"response": "I am a golang microservice!"})
 	})
 
