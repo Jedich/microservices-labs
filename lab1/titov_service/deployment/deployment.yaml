@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: titov-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: titov-service
+  template:
+    metadata:
+      labels:
+        app: titov-service
+    spec:
+      containers:
+      - name: titov-service
+        image: titov-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8082
+        env:
+        - name: NODE_ENV
+          value: production
