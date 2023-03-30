@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: golang-deployment
-          image: go-service
-          imagePullPolicy: Never
+          image: jedich/golang-mservice
+          imagePullPolicy: Always
           ports:
             - containerPort: 8083

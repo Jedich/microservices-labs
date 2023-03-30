@@ -3,12 +3,12 @@ kind: Ingress
 metadata:
   name: golang-ingress
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /api/golang-service
             pathType: Prefix
             backend:
               service:

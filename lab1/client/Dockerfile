@@ -1,10 +1,10 @@
 #build
 FROM node:18.8.0-alpine as build
 WORKDIR /app
-COPY client/package.json ./
-COPY client/package-lock.json ./
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
-COPY client/. ./
+COPY . .
 RUN npm run build
 
 #run

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app
+  name: client
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-app
+      app: client
   template:
     metadata:
       labels:
-        app: node-app
+        app: client
     spec:
       containers:
-        - name: node-app
-          image: maxutka/microserv
+        - name: client
+          image: jedich/microserv-client
           imagePullPolicy: Always
           ports:
-            - containerPort: 8081
+            - containerPort: 80

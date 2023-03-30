@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: titov-service
-        image: titov-service:latest
-        imagePullPolicy: Never
+        image: titovegor/titov-service
+        imagePullPolicy: Always
         ports:
         - containerPort: 8082
         env:

@@ -47,7 +47,7 @@ function App() {
 	return (
 		<div>
 			golang-service status: {alexServiceState}<br />
-			titov-service status: {titovServiceState}
+			titov-service status: {titovServiceState}<br />
 			max-service status: {maxServiceState}
 		</div>
 	);
