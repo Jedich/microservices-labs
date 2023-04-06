@@ -1,5 +1,5 @@
-DROP TABLE users;
-DROP TABLE ratings;
-DROP TABLE user_wishlists;
-DROP TABLE movies;
-DROP TABLE movie_genres;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS ratings;
+DROP TABLE IF EXISTS user_wishlists;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS movie_genres;
