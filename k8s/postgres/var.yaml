@@ -3,13 +3,13 @@ kind: ConfigMap
 metadata:
   name: postgres-config
 data:
-  POSTGRES_DB: demo
+  POSTGRES_DB: moviedb
 ---
 apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
   name: postgres-secret
-data:
-  POSTGRES_USER: "usr"
-  POSTGRES_PASSWORD: "pwd"
+stringData:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres

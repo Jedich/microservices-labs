@@ -8,9 +8,9 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -ldflags "-w -s -linkmode external -extldflags -static" -o /golang-service
+RUN go build -ldflags "-w -s -linkmode external -extldflags -static" -o /user-service
 
 FROM scratch
 EXPOSE 8083
 COPY --from=server_builder . .
-CMD ["/golang-service"]
+CMD ["/user-service"]

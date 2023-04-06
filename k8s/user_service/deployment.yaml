@@ -1,20 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: golang-app-deployment
+  name: user-service-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: golang-app
+      app: user-service
   template:
     metadata:
       labels:
-        app: golang-app
+        app: user-service
     spec:
       containers:
-        - name: golang-deployment
+        - name: user-service
           image: jedich/golang-mservice
+          env:
+          - name: APP_DSN
+            value: "host=postgres user=postgres password=postgres dbname=moviedb port=5432 sslmode=disable"
+          - name: DB_URL
+            value: "postgres://postgres:postgres@postgres:5432/moviedb?sslmode=disable"
           imagePullPolicy: Always
           ports:
             - containerPort: 8083

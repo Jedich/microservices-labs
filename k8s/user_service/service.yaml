@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: golang-service
+  name: user-service-svc
 spec:
   selector:
-    app: golang-app
+    app: user-service
   ports:
     - name: http
       port: 80
