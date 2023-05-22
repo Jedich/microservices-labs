@@ -1,0 +1,14 @@
+image:
+  containerName: movie-service
+  name: maxutka/microserv
+  tag: latest
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8081
+
+ingress:
+  path: /api/max-service
+  port: http

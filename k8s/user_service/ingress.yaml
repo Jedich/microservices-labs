@@ -15,3 +15,10 @@ spec:
                 name: user-service-svc
                 port:
                   number: 80
+          - path: /user
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service-svc
+                port:
+                  number: 80

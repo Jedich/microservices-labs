@@ -1,0 +1,18 @@
+image:
+  containerName: user-service
+  name: jedich/golang-mservice
+  tag: latest
+
+configs:
+  APP_DSN: "host=postgres user=dbuser password=dbuser dbname=moviedb port=5432 sslmode=disable"
+  DB_URL: "postgres://dbuser:dbuser@postgres:5432/moviedb?sslmode=disable"
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8083
+
+ingress:
+  path: /api/golang-service
+  port: http

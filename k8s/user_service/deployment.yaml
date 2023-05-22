@@ -17,9 +17,9 @@ spec:
           image: jedich/golang-mservice
           env:
           - name: APP_DSN
-            value: "host=postgres user=postgres password=postgres dbname=moviedb port=5432 sslmode=disable"
+            value: "host=postgres user=dbuser password=dbuser dbname=moviedb port=5432 sslmode=disable"
           - name: DB_URL
-            value: "postgres://postgres:postgres@postgres:5432/moviedb?sslmode=disable"
+            value: "postgres://dbuser:dbuser@postgres:5432/moviedb?sslmode=disable"
           imagePullPolicy: Always
           ports:
             - containerPort: 8083

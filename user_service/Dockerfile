@@ -12,5 +12,8 @@ RUN go build -ldflags "-w -s -linkmode external -extldflags -static" -o /user-se
 
 FROM scratch
 EXPOSE 8083
-COPY --from=server_builder . .
+
+COPY --from=server_builder /user-service .
+COPY ./migrations ./migrations
+
 CMD ["/user-service"]

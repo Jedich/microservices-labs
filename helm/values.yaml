@@ -1,0 +1,10 @@
+postgresql:
+  fullnameOverride: postgres
+  auth:
+    database: "moviedb"
+    username: "dbuser"
+    password: "dbuser"
+  primary:
+    persistence:
+      size: 5Gi
+      mountPath: /var/lib/postgresql/data
