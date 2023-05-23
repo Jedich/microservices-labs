@@ -13,5 +13,5 @@ service:
       containerPort: 8082
 
 ingress:
-  path: /api/titov-service
-  port: http
+  - path: /api/titov-service
+    port: http

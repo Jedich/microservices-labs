@@ -10,5 +10,5 @@ service:
       containerPort: 80
 
 ingress:
-  path: /
-  port: http
+  - path: /
+    port: http

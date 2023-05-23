@@ -14,5 +14,7 @@ service:
       containerPort: 8083
 
 ingress:
-  path: /api/golang-service
-  port: http
+  - path: /api/golang-service
+    port: http
+  - path: /user
+    port: http

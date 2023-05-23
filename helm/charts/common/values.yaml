@@ -10,8 +10,8 @@ service:
   ports: []
 
 ingress:
-  path: /
-  port: http
+  - path: /
+    port: http
 
 configs: {}
 

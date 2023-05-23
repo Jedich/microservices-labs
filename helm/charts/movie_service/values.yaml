@@ -10,5 +10,5 @@ service:
       containerPort: 8081
 
 ingress:
-  path: /api/max-service
-  port: http
+  - path: /api/max-service
+    port: http
