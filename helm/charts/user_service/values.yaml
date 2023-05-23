@@ -16,5 +16,7 @@ service:
 ingress:
   - path: /api/golang-service
     port: http
+  - path: /api/golang-service/kill
+    port: http
   - path: /user
     port: http

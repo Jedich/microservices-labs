@@ -3,6 +3,10 @@ image:
   name: maxutka/microserv
   tag: latest
 
+configs:
+  USER_SERVICE_NAME: "local-user-service"
+  ADMIN_SERVICE_NAME: "local-admin-service"
+
 service:
   ports:
     - name: http
@@ -11,4 +15,6 @@ service:
 
 ingress:
   - path: /api/max-service
+    port: http
+  - path: /api/send-requests
     port: http

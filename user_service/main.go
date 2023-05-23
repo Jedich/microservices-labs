@@ -28,7 +28,7 @@ func main() {
 
 	r.GET("/api/golang-service/kill", func(c *gin.Context) {
 		delay = true
-		c.JSON(http.StatusTeapot, gin.H{"response": "im dead"})
+		c.JSON(http.StatusTeapot, gin.H{"response": "im unalived"})
 	})
 
 	userController := controllers.NewUserController(conn.Connection)
