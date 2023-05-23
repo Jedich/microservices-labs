@@ -4,10 +4,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"time"
 	"user_service/controllers"
 	"user_service/db"
 	"user_service/utils"
 )
+
+var delay bool = false
 
 func main() {
 	conn := db.OpenConnection()
@@ -16,7 +19,16 @@ func main() {
 	r.Use(utils.ErrorHandler())
 
 	r.GET("/api/golang-service/", func(c *gin.Context) {
+		if delay {
+			time.Sleep(10 * time.Second)
+			delay = false
+		}
 		c.JSON(http.StatusOK, gin.H{"response": "I am a golang microservice!"})
+	})
+
+	r.GET("/api/golang-service/kill", func(c *gin.Context) {
+		delay = true
+		c.JSON(http.StatusTeapot, gin.H{"response": "im dead"})
 	})
 
 	userController := controllers.NewUserController(conn.Connection)
