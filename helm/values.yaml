@@ -8,3 +8,17 @@ postgresql:
     persistence:
       size: 5Gi
       mountPath: /var/lib/postgresql/data
+
+kafka:
+  fullnameOverride: kafka
+  replicaCount: 1
+  autoCreateTopicsEnable: false
+  configurationOverrides:
+    - name: auto.create.topics.enable
+      value: "false"
+  persistence:
+    enabled: true
+  topicOperator:
+    enabled: true
+    autoCreateTopics:
+      - name: email-notification

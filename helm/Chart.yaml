@@ -10,3 +10,6 @@ dependencies:
   - name: common
     version: 0.1.0
     repository: file://charts/common
+  - name: kafka
+    version: 22.1.3
+    repository: https://charts.bitnami.com/bitnami

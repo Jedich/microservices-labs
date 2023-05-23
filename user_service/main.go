@@ -7,6 +7,7 @@ import (
 	"time"
 	"user_service/controllers"
 	"user_service/db"
+	"user_service/kafka"
 	"user_service/utils"
 )
 
@@ -14,6 +15,9 @@ var delay bool = false
 
 func main() {
 	conn := db.OpenConnection()
+
+	producer := kafka.CreateKafkaProducer()
+	_ = utils.ReadEnv("KAFKA_EMAIL_TOPIC")
 
 	r := gin.Default()
 	r.Use(utils.ErrorHandler())
@@ -31,8 +35,12 @@ func main() {
 	})
 
 	userController := controllers.NewUserController(conn.Connection)
-	r.POST("/user", userController.CreateUser)
+	r.POST("/api/user", userController.CreateUser)
 
+	emailController := controllers.NewEmailController(producer)
+	r.POST("/api/send-email", emailController.SendEmail)
+
+	defer producer.Close()
 	defer conn.CloseConnection()
 
 	err := r.Run(":8083")

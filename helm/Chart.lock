@@ -5,5 +5,8 @@ dependencies:
 - name: common
   repository: file://charts/common
   version: 0.1.0
-digest: sha256:235b4cb36b2b4ea816aea562a4f1a22101038d95f7e7d21042f6ed96a41388ae
-generated: "2023-05-22T02:32:42.07809115+03:00"
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 22.1.3
+digest: sha256:d3bf786765b3727d89c43aa6abfeea4b062fb81cad529de7367409f82affc6a9
+generated: "2023-05-24T00:39:53.727808238+03:00"

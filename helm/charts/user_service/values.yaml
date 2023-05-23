@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 1
 
 image:
   containerName: user-service
@@ -8,6 +8,8 @@ image:
 configs:
   APP_DSN: "host=postgres user=dbuser password=dbuser dbname=moviedb port=5432 sslmode=disable"
   DB_URL: "postgres://dbuser:dbuser@postgres:5432/moviedb?sslmode=disable"
+  KAFKA_URL: "kafka:9092"
+  KAFKA_EMAIL_TOPIC: "email-notification"
 
 service:
   ports:
@@ -20,5 +22,7 @@ ingress:
     port: http
   - path: /api/golang-service/kill
     port: http
-  - path: /user
+  - path: /api/send-email
+    port: http
+  - path: /api/user
     port: http

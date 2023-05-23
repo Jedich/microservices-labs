@@ -22,7 +22,7 @@ func ErrorHandler() gin.HandlerFunc {
 func ReadEnv(key string) string {
 	env, ok := os.LookupEnv(key)
 	if !ok {
-		log.Fatal("APP_DSN not set")
+		log.Fatalf("%s not set", key)
 	}
 	return env
 }

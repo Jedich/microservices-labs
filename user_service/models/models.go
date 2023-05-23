@@ -34,3 +34,9 @@ type Wishlist struct {
 	UserID  int `json:"user_id"`
 	MovieID int `json:"movie_id"`
 }
+
+type EmailNotification struct {
+	Sender   string `json:"sender"`
+	Receiver string `json:"receiver"`
+	Message  string `json:"message"`
+}

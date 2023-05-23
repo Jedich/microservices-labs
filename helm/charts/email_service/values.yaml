@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  containerName: email-service
+  name: jedich/email-mservice
+  tag: latest
+
+configs:
+  KAFKA_URL: "kafka:9092"
+  KAFKA_TOPIC: "email-notification"
+
+service:
+  ports:
+    - name: kafka
+      port: 9092
+      containerPort: 9092
