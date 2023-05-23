@@ -21,7 +21,6 @@ func main() {
 	r.GET("/api/golang-service/", func(c *gin.Context) {
 		if delay {
 			time.Sleep(10 * time.Second)
-			delay = false
 		}
 		c.JSON(http.StatusOK, gin.H{"response": "I am a golang microservice!"})
 	})

@@ -16,14 +16,14 @@ spec:
   rules:
     - http:
         paths:
-        {{- range $ingress := .Values.ingress }}
-          - path: {{ $ingress.path }}
+        {{- range .Values.ingress }}
+          - path: {{ .path }}
             pathType: "Prefix"
             backend:
               service:
                 name: {{ include "common.fullname" $ }}
                 port:
-                  name: {{ $ingress.port }}
+                  name: {{ .port }}
         {{- end }}
 {{- end -}}
 {{- end -}}

@@ -1,3 +1,5 @@
+replicaCount: 3
+
 image:
   containerName: user-service
   name: jedich/golang-mservice

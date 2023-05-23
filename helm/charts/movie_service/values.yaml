@@ -1,6 +1,6 @@
 image:
   containerName: movie-service
-  name: maxutka/microserv
+  name: jedich/movie-test
   tag: latest
 
 configs:
