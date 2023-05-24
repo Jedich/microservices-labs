@@ -22,3 +22,4 @@ kafka:
     enabled: true
     autoCreateTopics:
       - name: email-notification
+      - name: auth-events

@@ -1,0 +1,24 @@
+image:
+  containerName: auth-service
+  name: jedich/auth-service
+  tag: latest
+
+configs:
+  NODE_ENV: production
+  KAFKA_URL: "kafka:9092"
+  KAFKA_TOPIC: "auth-events"
+  JWT_SECRET: "admin"
+  USER_SERVICE_NAME: "local-user-service"
+
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8085
+
+ingress:
+  - path: /api/auth/register
+    port: http
+  - path: /api/auth/login
+    port: http
