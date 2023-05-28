@@ -8,6 +8,7 @@ configs:
   ADMIN_SERVICE_NAME: "local-admin-service"
   KAFKA_URL: "kafka:9092"
   KAFKA_TOPIC: "auth-events"
+  FLUENT_HOST: "host.minikube.internal"
 
 service:
   ports:

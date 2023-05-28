@@ -3,6 +3,9 @@ const app = express();
 const hostname = "0.0.0.0";
 const port = 8082;
 
+middleware = require("./middleware");
+app.use(middleware.log);
+
 //Create HTTP server and listen on port 3000 for requests
 app.get('/api/titov-service/', (req, res) => {
 	res.statusCode = 200;

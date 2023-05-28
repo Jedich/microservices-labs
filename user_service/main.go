@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"github.com/fluent/fluent-logger-golang/fluent"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -21,6 +23,7 @@ func main() {
 
 	r := gin.Default()
 	r.Use(utils.ErrorHandler())
+	r.Use(fluentdMiddleware(NewFluentLogger()))
 
 	r.GET("/api/golang-service/", func(c *gin.Context) {
 		if delay {
@@ -48,4 +51,32 @@ func main() {
 	if err != nil {
 		log.Fatalf("impossible to start server: %s", err)
 	}
+}
+
+func fluentdMiddleware(logger *fluent.Fluent) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Log request details
+		logger.Post("http_request", map[string]string{
+			"url":    c.Request.URL.Path,
+			"method": c.Request.Method,
+			"ip":     c.ClientIP(),
+		})
+
+		// Continue processing the request
+		c.Next()
+	}
+}
+
+func NewFluentLogger() *fluent.Fluent {
+	logger, err := fluent.New(fluent.Config{
+		FluentHost: utils.ReadEnv("FLUENT_HOST"), // Fluentd server host
+		FluentPort: 24224,                        // Fluentd server port
+		TagPrefix:  "user-mserv",                 // Fluentd tag prefix
+		Async:      false,                        // Whether to send logs asynchronously (true) or synchronously (false)
+	})
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("Connected to fluentd")
+	return logger
 }

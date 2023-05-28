@@ -5,6 +5,7 @@ image:
 
 configs:
   NODE_ENV: production
+  FLUENT_HOST: host.minikube.internal
 
 service:
   ports:

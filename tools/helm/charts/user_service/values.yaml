@@ -10,6 +10,7 @@ configs:
   DB_URL: "postgres://dbuser:dbuser@postgres:5432/moviedb?sslmode=disable"
   KAFKA_URL: "kafka:9092"
   KAFKA_EMAIL_TOPIC: "email-notification"
+  FLUENT_HOST: "host.minikube.internal"
 
 service:
   ports:
